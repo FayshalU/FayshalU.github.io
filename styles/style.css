@@ -3,64 +3,67 @@ body {
 }
 
 .main-window {
-    text-align: left;
-    width: 600px;
-    height: 360px;
-    border-radius: 10px;
-    margin: auto;
-    position: relative;
-    display: block;
-    top: 25vh;
+    text-align:     left;
+    width:          600px;
+    height:         360px;
+    border-radius:  10px;
+    margin:         auto;
+    position:       relative;
+    display:        block;
+    top:            25vh;
 }
 
-.main-window:fullscreen{
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+.main-window header {
+    background:     #e0e8f0;
+    height:         30px;
+    border-radius:  8px 8px 0 0;
+    padding-left:   10px;
 }
 
-.main-window:fullscreen header {
-    display: none;
+.btn {
+    width:          12px;
+    height:         12px;
+    margin:         10px 4px 0 0;
+    display:        inline-block;
+    border-radius:  8px;
 }
 
-.main-window:fullscreen #terminal {
-    display: none;
+.btn.btn-red {
+    background:     #e75448;
 }
 
-header {
-    background: #e0e8f0;
-    height: 30px;
-    border-radius: 8px 8px 0 0;
-    padding-left: 10px;
+.btn.btn-yellow {
+    background:     #e5c30f;
+}
+
+.btn.btn-green {
+    background:     #3bb662;
 }
 
 #terminal {
-    color: white;
-    font-family: "Menlo", "Monaco", "Consolas", "Courier New", "Courier";
-    font-size: 11pt;
-    background: #30353a;
-    padding: 10px;
-    box-sizing: border-box;
-    position: absolute;
-    width: 100%;
-    top: 30px;
-    bottom: 0;
-    overflow: auto;
+    color:          white;
+    font-family:    "Menlo", "Monaco", "Consolas", "Courier New", "Courier";
+    font-size:      11pt;
+    background:     #30353a;
+    padding:        10px;
+    box-sizing:     border-box;
+    position:       absolute;
+    width:          100%;
+    top:            30px;
+    bottom:         0;
+    overflow:       auto;
 }
 
 .green {
-    color: green;
+    color:          green;
 }
 
 .root {
-    color: #95F584;
+    color:          #95F584;
 }
 
 .arrow {
-    color: #EC4891;
+    color:          #EC4891;
 }
 
 .command-input {
@@ -68,9 +71,3 @@ header {
     border:         none;
     display:        inline-block;
 }
-
-/* .command_input {
-    border: none;
-    background: #000634;
-    color: white;
-} */
