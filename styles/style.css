@@ -75,3 +75,12 @@ body {
 .dir {
     color:          #88DEF2;
 }
+
+.contact {
+    list-style:     none;
+    margin-left:    -30px;
+}
+
+.blue {
+    color:          lightblue;
+}
