@@ -71,3 +71,7 @@ body {
     border:         none;
     display:        inline-block;
 }
+
+.dir {
+    color:          #88DEF2;
+}

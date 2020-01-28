@@ -5,8 +5,7 @@ const rootPath = 'root'
   
 // initialize cli
 $(() => {
-    const term = document.getElementById('terminal');
-    const listenerObj = new Listeners(term, commands);
+    const listenerObj = new Listeners(commands);
 
     $.getJSON( "data/commandData.json", function( data ) {
         commandData = data;
