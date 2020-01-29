@@ -13,4 +13,6 @@ $(() => {
 })
 
 // view list of possible commands
-commands.help = () => systemData.help;
+commands.help = () => {
+    return commandData.help;
+}

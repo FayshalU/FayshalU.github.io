@@ -42,7 +42,7 @@ body {
 
 #terminal {
     color:          white;
-    font-family:    "Menlo", "Monaco", "Consolas", "Courier New", "Courier";
+    font-family:    Menlo, Monaco, "Consolas", "Courier New", "Courier";
     font-size:      11pt;
     background:     #30353a;
     padding:        10px;
