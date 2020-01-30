@@ -1,23 +1,25 @@
 {
     "help": {
         "li": [
-            "<strong>path</strong> - display current directory",
+            "<strong>pwd</strong> - display current directory",
             "<strong>cat FILENAME</strong> - display FILENAME in window",
             "<strong>cd DIRECTORY</strong> - move into DIRECTORY or just cd to return to root",
-            "</strong> - show files in current directory",
+            "<strong>ls</strong> - show files in current directory",
             "<strong>history</strong> - see your command history",
-            "clear</strong> - clear current window"
+            "<strong>clear</strong> - clear current window"
         ]
     },
-    "root": {
-        "file": ["about.txt", "resume.txt", "contact.txt"],
-        "folder": ["projects", "skills"]
-    },
-    "projects": {
-        "file": ["ohannah", "criclive", "self-learn", "mytube", "simplemanagement"]
-    },
-    "skills": {
-        "file": ["proficient.txt", "familiar.txt", "learning.txt"]
+    "dir": {
+        "fayshal": {
+            "file": ["about", "resume", "contact"],
+            "dir": ["projects", "skills"]
+        },
+        "projects": {
+            "file": ["ohannah", "criclive", "self-learn", "mytube", "simplemanagement"]
+        },
+        "skills": {
+            "file": ["proficient", "familiar", "learning"]
+        }
     },
     "about": "<p>I'm a software engineer based in Dhaka, Bangladesh!<br> <br> I mainly work on backend stuff. <br> <br> Passionate about efficient coding, traveling, and learning any and everything that happens to come my way. <br> <br> I work as a associate engineer on the Triage team at FieldNation 😀</p>",
     "resume": "<a class='blue' target='_blank' href=''>View My Resume</a>",
@@ -61,5 +63,9 @@
             "TypeScript",
             "Python"
         ]
+    },
+    "errors": {
+        "dirError": "Directory not found",
+        "dirNotFound": "Not a directory"
     }
 }
