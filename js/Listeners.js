@@ -21,6 +21,7 @@ class Listeners {
                     this.renderContent(inputArr);
                 }
                 this.resetCursor(event.target);
+                event.preventDefault();
             }
         });
 
@@ -55,12 +56,9 @@ class Listeners {
     }
 
     resetCursor = (prompt) => {
-        console.log(prompt.parentNode);
-        const newPrompt = prompt.parentNode.cloneNode(true);
-        console.log(newPrompt);
-        prompt.setAttribute('contenteditable', false);
-        this.term.appendChild(newPrompt)
-        newPrompt.querySelector('.command-input').innerHTML = ''
-        newPrompt.querySelector('.command-input').focus()
+        const newPrompt = $(prompt).parent().clone();
+        $(prompt).attr('contenteditable', false);
+        $('#terminal').append(newPrompt);
+        newPrompt.find('.command-input').last().empty().focus();
     }
 }
