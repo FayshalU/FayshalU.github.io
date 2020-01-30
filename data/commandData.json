@@ -1,7 +1,7 @@
 {
     "help": {
         "li": [
-            "<strong>path</strong> - display current directory",
+            "<strong>pwd</strong> - display current directory",
             "<strong>cat FILENAME</strong> - display FILENAME in window",
             "<strong>cd DIRECTORY</strong> - move into DIRECTORY or just cd to return to root",
             "<strong>ls</strong> - show files in current directory",
@@ -65,6 +65,7 @@
         ]
     },
     "errors": {
-        "dirError": "Directory not found"
+        "dirError": "Directory not found",
+        "dirNotFound": "Not a directory"
     }
 }

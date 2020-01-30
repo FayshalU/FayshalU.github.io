@@ -15,7 +15,7 @@ class Listeners {
         $(term).keypress((event) => {
             // console.log(event.target.textContent);
             if (event.keyCode == 13) {
-                console.log(event.target.textContent);
+                // console.log(event.target.textContent);
                 const inputArr = event.target.textContent.trim().split(' ');
                 if (inputArr[0] in this.commands) {
                     this.renderContent(inputArr);
@@ -32,9 +32,7 @@ class Listeners {
     }
 
     renderContent = (inputArr) => {
-        console.log(this.commands);
-        const data = this.generateElement(this.commands[inputArr[0]](inputArr[1]));
-        console.log(data);
+        const data = this.generateElement(this.commands[inputArr[0].trim()](inputArr[1]));
         this.term.innerHTML += data;
     }
 
@@ -51,6 +49,9 @@ class Listeners {
         }
         if (data.dir) {
             elements += `<p><span class='dir'>${ data.dir.join(' &nbsp&nbsp') }</span></p>`;
+        }
+        if (typeof data === 'string') {
+            elements = data;
         }
         return elements;
     }
