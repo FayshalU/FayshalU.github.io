@@ -1,7 +1,7 @@
 // global vars
-const commands = {}
-let commandData = {}
-const rootPath = 'root'
+const commands = {};
+let commandData = {};
+localStorage.path = '/home/fayshal';
   
 // initialize cli
 $(() => {
@@ -15,4 +15,16 @@ $(() => {
 // view list of possible commands
 commands.help = () => {
     return commandData.help;
+}
+
+// view list of items in the current directory
+commands.ls = () => {
+    const currentDir = localStorage.path.split('/').slice(-1)[0];
+    console.log(currentDir);
+    if (!currentDir in commandData.dir) {
+        return commandData.dirError;
+    }
+    else {
+        return commandData.dir[currentDir];
+    }
 }

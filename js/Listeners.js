@@ -3,6 +3,7 @@ class Listeners {
         this.commands = commands;
         $('.command-input').focus();
         this.eventListeners();
+        this.term = document.getElementById("terminal");
     };
 
     eventListeners = () => {
@@ -33,25 +34,32 @@ class Listeners {
         console.log(this.commands);
         const data = this.generateElement(this.commands[inputArr[0]](inputArr[1]));
         console.log(data);
-        document.getElementById("terminal").innerHTML += data;
+        this.term.innerHTML += data;
     }
 
     generateElement = (data) => {
         if (!data) {
             return '';
         }
-        else if (data.li) {
-            return `<ul><li>${ data.li.join('</li><li>') }</li></ul>`;
+        let elements = ''
+        if (data.li) {
+            elements += `<ul><li>${ data.li.join('</li><li>') }</li></ul>`;
         }
+        if (data.file) {
+            elements += `<p>${ data.file.join('.txt &nbsp&nbsp ') }.txt</p>`;
+        }
+        if (data.dir) {
+            elements += `<p><span class='dir'>${ data.dir.join(' &nbsp&nbsp') }</span></p>`;
+        }
+        return elements;
     }
 
     resetCursor = (prompt) => {
-        const newPrompt = prompt.parentNode.cloneNode(true)
-        prompt.setAttribute('contenteditable', false)
-        if (this.prompt) {
-            newPrompt.querySelector('.prompt').textContent = this.prompt
-        }
-        document.getElementById("terminal").appendChild(newPrompt)
+        console.log(prompt.parentNode);
+        const newPrompt = prompt.parentNode.cloneNode(true);
+        console.log(newPrompt);
+        prompt.setAttribute('contenteditable', false);
+        this.term.appendChild(newPrompt)
         newPrompt.querySelector('.command-input').innerHTML = ''
         newPrompt.querySelector('.command-input').focus()
     }
