@@ -66,6 +66,7 @@
     },
     "errors": {
         "dirError": "Directory not found",
-        "dirNotFound": "Not a directory"
+        "dirNotFound": "Not a directory",
+        "fileNotFound": "No such file or directory"
     }
 }

@@ -26,7 +26,7 @@ getCurrentDir = () => localStorage.path.split('/').slice(-1)[0];
 // view list of items in the current directory
 commands.ls = () => {
     const currentDir = localStorage.path.split('/').slice(-1)[0];
-    if (!getCurrentDir() in commandData.dir) {
+    if (!(getCurrentDir() in commandData.dir)) {
         return commandData.errors.dirError;
     }
     else {
@@ -54,4 +54,16 @@ commands.cd = (dir) => {
         }
     }
     return {cd: 3, err: commandData.errors.dirNotFound};
+}
+
+// read file
+commands.cat = (file) => {
+    const currDir = getCurrentDir();
+    if (commandData.dir[currDir] && commandData.dir[currDir].file) {
+        const fileName = commandData.dir[currDir].file.find((f) => f == file);
+        if (fileName) {
+            return commandData[fileName];
+        }
+    }
+    return commandData.errors.fileNotFound;
 }
