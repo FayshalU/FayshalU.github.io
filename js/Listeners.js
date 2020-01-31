@@ -5,6 +5,7 @@ class Listeners {
         this.eventListeners();
         this.term = document.getElementById("terminal");
         this.lastDir = '';
+        this.historyIndex = getHistory().length - 1;
     };
 
     eventListeners = () => {
@@ -15,19 +16,33 @@ class Listeners {
 
         $(term).keypress((event) => {
             if (event.keyCode == 13) {
-                const inputArr = event.target.textContent.trim().split(' ');
+                // Enter pressed
+                const inputfield = event.target;
+                const inputArr = inputfield.textContent.trim().split(' ');
                 if (inputArr[0].trim() == 'clear' && !inputArr[1]) {
                     this.clearScreen();
                 }
                 else if (inputArr[0] in this.commands) {
                     this.renderContent(inputArr);
-                    this.resetCursor(event.target);
+                    this.resetCursor(inputfield);
                 }
                 else {
                     this.term.innerHTML += 'Invalid argument';
-                    this.resetCursor(event.target);
+                    this.resetCursor(inputfield);
                 }
                 event.preventDefault();
+                setHistory(inputfield.textContent);
+                console.log(getHistory());
+            }
+            else if (event.keyCode == 38) {
+                // Up arrow pressed
+                if (getHistory().length > 0) {
+                    
+                }
+            }
+            else if (event.keyCode == 40) {
+                // Down arrow pressed
+
             }
         });
 

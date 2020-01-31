@@ -1,7 +1,8 @@
 // global vars
-const commands = {};
+let commands = {};
 let commandData = {};
 localStorage.path = '/home/fayshal';
+let history = [];
   
 // initialize cli
 $(() => {
@@ -21,9 +22,13 @@ commands.pwd = () => {
     return localStorage.path;
 }
 
-getCurrentDir = () => localStorage.path.split('/').slice(-1)[0];
+let getCurrentDir = () => localStorage.path.split('/').slice(-1)[0];
 
-// view list of items in the current directory
+let setHistory = (cmd) => history.push(cmd);
+
+let getHistory = () => history;
+
+// view list of items in the current directory)
 commands.ls = () => {
     const currentDir = localStorage.path.split('/').slice(-1)[0];
     if (!(getCurrentDir() in commandData.dir)) {
@@ -66,4 +71,12 @@ commands.cat = (file) => {
         }
     }
     return commandData.errors.fileNotFound;
+}
+
+// view the history
+commands.history = () => {
+    if (getHistory().length > 0) {
+        return `<p>${getHistory().join('<br>')}</p>`;
+    }
+    return '';
 }
