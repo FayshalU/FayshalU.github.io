@@ -14,6 +14,12 @@ class Listeners {
             $('.command-input').last().focus();
         });
 
+        // $('.command-input')
+        // .putCursorAtEnd() // should be chainable
+        // .on("focus", function() { // could be on any event
+        //     $('.command-input').last().putCursorAtEnd();
+        // });
+
         $(term).keydown((event) => {
             if (event.keyCode == 13) {
                 // Enter pressed
@@ -29,6 +35,10 @@ class Listeners {
                 else if (inputArr[0] == '') {
                     this.resetCursor(inputfield);
                 }
+                else if (availableComands.includes(inputArr[0].trim()) && inputArr[1]) {
+                    this.term.innerHTML += 'Permission denied';
+                    this.resetCursor(inputfield);
+                }
                 else {
                     this.term.innerHTML += 'Invalid argument';
                     this.resetCursor(inputfield);
@@ -42,16 +52,29 @@ class Listeners {
             else if (event.keyCode == 38) {
                 // Up arrow pressed
                 if (getHistory().length > 0 && this.historyIndex > 0) {
-                    $('.command-input').last().html(getHistory()[this.historyIndex-1]);
+                    $('.command-input').last().html(getHistory()[this.historyIndex-1]).focus();
+                    this.moveCursorToEnd();
                     this.historyIndex--;
+                    event.preventDefault();
                 }
             }
             else if (event.keyCode == 40) {
                 // Down arrow pressed
                 if (getHistory().length > this.historyIndex) {
                     this.historyIndex++;
-                    $('.command-input').last().html(getHistory()[this.historyIndex]);
+                    $('.command-input').last().html(getHistory()[this.historyIndex]).focus();
+                    this.moveCursorToEnd();
+                    event.preventDefault();
                 }
+            }
+            else if (event.keyCode == 9) {
+                // Tab pressed
+                const data = getSuggestion(event.target.textContent.trim());
+                if (data) {
+                    $('.command-input').last().html(data).focus();
+                    this.moveCursorToEnd();
+                }
+                event.preventDefault();
             }
         });
 
@@ -123,5 +146,12 @@ class Listeners {
         $(inputfield).attr('contenteditable', false);
         $('#terminal').append(newInput);
         newInput.find('.command-input').last().empty().focus();
+    }
+
+    moveCursorToEnd = () => {
+        // select all the content in the element
+        document.execCommand('selectAll', false, null);
+        // collapse selection to the end
+        document.getSelection().collapseToEnd();
     }
 }

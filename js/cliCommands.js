@@ -3,6 +3,8 @@ let commands = {};
 let commandData = {};
 localStorage.path = '/home/fayshal';
 let history = [];
+const availableComands = ['pwd', 'ls', 'cd', 'help', 'clear', 'history', 'cat', 'mkdir', 'rmdir', 'touch', 'move', 'copy', 'grep', 'find', 'echo', 'sudo', 'chmod'];
+const availableArgs = ['fayshal', 'projects', 'skills', 'about', 'resume', 'contact', 'ohannah', 'criclive', 'self-learn', 'mytube', 'simplemanagement', 'proficient', 'familiar', 'learning'];
   
 // initialize cli
 $(() => {
@@ -77,6 +79,18 @@ commands.cat = (file) => {
 commands.history = () => {
     if (getHistory().length > 0) {
         return `<p>${getHistory().join('<br>')}</p>`;
+    }
+    return '';
+}
+
+// view suggestion
+let getSuggestion = (input) => {
+    const inputArr = input.split(' ');
+    if (inputArr.length == 1) {
+        return availableComands.find((cmd) => cmd.indexOf(inputArr[0]) == 0) || '';
+    }
+    else if (inputArr.length == 2) {
+        return `${inputArr[0]} ${availableArgs.find((args) => args.indexOf(inputArr[1]) == 0) || ''}`;
     }
     return '';
 }
