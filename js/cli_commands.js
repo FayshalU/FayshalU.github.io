@@ -6,7 +6,7 @@ localStorage.path = '/home/fayshal';
 // initialize cli
 $(() => {
     const listenerObj = new Listeners(commands);
-    $.getJSON( "data/commandData.json", function( data ) {
+    $.getJSON( 'data/commandData.json', function( data ) {
         commandData = data;
     });
 })
@@ -42,15 +42,16 @@ commands.cd = (dir) => {
             pathArr.pop();
             localStorage.path = pathArr.join('/');
         }
-        return localStorage.path;
+        return {cd: 1};
     }
     else if (dir in commandData.dir) {
         if (dir != 'fayshal') {
             paths = localStorage.path.split('/');
             if (paths.length == 3) {
-                return localStorage.path += '/'+dir;
+                localStorage.path += `/${dir}`;
+                return {cd: 2, path: dir};
             }
         }
     }
-    return commandData.errors.dirNotFound;
+    return {cd: 3, err: commandData.errors.dirNotFound};
 }

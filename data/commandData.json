@@ -3,7 +3,7 @@
         "li": [
             "<strong>pwd</strong> - display current directory",
             "<strong>cat FILENAME</strong> - display FILENAME in window",
-            "<strong>cd DIRECTORY</strong> - move into DIRECTORY or just cd to return to root",
+            "<strong>cd DIRECTORY</strong> - move into DIRECTORY or just cd .. to return to root",
             "<strong>ls</strong> - show files in current directory",
             "<strong>history</strong> - see your command history",
             "<strong>clear</strong> - clear current window"

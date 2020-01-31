@@ -4,6 +4,7 @@ class Listeners {
         $('.command-input').focus();
         this.eventListeners();
         this.term = document.getElementById("terminal");
+        this.lastDir = '';
     };
 
     eventListeners = () => {
@@ -50,16 +51,33 @@ class Listeners {
         if (data.dir) {
             elements += `<p><span class='dir'>${ data.dir.join(' &nbsp&nbsp') }</span></p>`;
         }
+        if (data.cd) {
+            if (data.cd === 1) {
+                this.lastDir = $('.path').last().html();
+                $('.path').last().html('Fayshal@root');
+            }
+            else if (data.cd === 2) {
+                this.lastDir = $('.path').last().html();
+                $('.path').last().html(`Fayshal@root/${data.path}`);
+            }
+            else if (data.cd === 3) {
+                elements = data.err;
+            }
+        }
         if (typeof data === 'string') {
             elements = data;
         }
         return elements;
     }
 
-    resetCursor = (prompt) => {
-        const newPrompt = $(prompt).parent().clone();
-        $(prompt).attr('contenteditable', false);
-        $('#terminal').append(newPrompt);
-        newPrompt.find('.command-input').last().empty().focus();
+    resetCursor = (inputfield) => {
+        const newInput = $(inputfield).parent().clone();
+        if (this.lastDir) {
+            $(".path").last().html(this.lastDir);
+            this.lastDir = '';
+        }
+        $(inputfield).attr('contenteditable', false);
+        $('#terminal').append(newInput);
+        newInput.find('.command-input').last().empty().focus();
     }
 }
