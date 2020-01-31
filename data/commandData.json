@@ -3,7 +3,7 @@
         "li": [
             "<strong>pwd</strong> - display current directory",
             "<strong>cat FILENAME</strong> - display FILENAME in window",
-            "<strong>cd DIRECTORY</strong> - move into DIRECTORY or just cd to return to root",
+            "<strong>cd DIRECTORY</strong> - move into DIRECTORY or just cd .. to return to root",
             "<strong>ls</strong> - show files in current directory",
             "<strong>history</strong> - see your command history",
             "<strong>clear</strong> - clear current window"
@@ -34,8 +34,8 @@
     "ohannah": "",
     "criclive": "",
     "self-learn": "",
-    "mytube": "",
-    "simplemanagement": "",
+    "mytube": "It's an ",
+    "simplemanagement": "It's a simple student management system. It was built using ReactJs, Redux, Saga, PHP, NodeJs and expressJs",
     "proficient": {
         "li": [
             "Javascript",
@@ -66,6 +66,7 @@
     },
     "errors": {
         "dirError": "Directory not found",
-        "dirNotFound": "Not a directory"
+        "dirNotFound": "Not a directory",
+        "fileNotFound": "No such file or directory"
     }
 }

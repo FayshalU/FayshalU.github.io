@@ -58,7 +58,7 @@ body {
     color:          green;
 }
 
-.root {
+.path {
     color:          #95F584;
 }
 
@@ -83,4 +83,8 @@ body {
 
 .blue {
     color:          lightblue;
+}
+
+h4 {
+    text-align: center;
 }
