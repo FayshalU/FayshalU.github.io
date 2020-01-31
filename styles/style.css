@@ -4,8 +4,8 @@ body {
 
 .main-window {
     text-align:     left;
-    width:          600px;
-    height:         360px;
+    width:          750px;
+    height:         500px;
     border-radius:  10px;
     margin:         auto;
     position:       relative;
@@ -86,5 +86,6 @@ body {
 }
 
 h4 {
-    text-align: center;
+    text-align:     center;
+    color:          lightblue;
 }

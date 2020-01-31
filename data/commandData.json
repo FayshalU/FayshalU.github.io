@@ -21,7 +21,7 @@
             "file": ["proficient", "familiar", "learning"]
         }
     },
-    "about": "<p>I'm a software engineer based in Dhaka, Bangladesh!<br> <br> I mainly work on backend stuff. <br> <br> Passionate about efficient coding, traveling, and learning any and everything that happens to come my way. <br> <br> I work as a associate engineer on the Triage team at FieldNation 😀</p>",
+    "about": "<p>I'm a software engineer based in Dhaka, Bangladesh!<br> <br> I mainly work on backend stuff. <br> <br> Passionate about efficient coding, traveling, and learning any and everything that happens to come my way. <br> <br> I work as a associate engineer on the Triage team at FieldNation LLC. 😀</p>",
     "resume": "<a class='blue' target='_blank' href=''>View My Resume</a>",
     "contact": {
         "li": [
@@ -31,11 +31,11 @@
             "<a class='blue' target='_blank' href='https://www.facebook.com/faysal4777'>Facebook</a>"
         ]
     },
-    "ohannah": "",
-    "criclive": "",
-    "self-learn": "",
-    "mytube": "It's an ",
-    "simplemanagement": "It's a simple student management system. It was built using ReactJs, Redux, Saga, PHP, NodeJs and expressJs",
+    "ohannah": "<h4>O'Hannah</h4><p>This is a virtual assistant build for windows environment that can perform various task based on voice commands. Here is a list of things it can do... </p> <ul><li>It can play any kind of media file in it's own Media Player</li><li>It can search for anything on the web and can read the result</li><li>It can read the content of web pages such as Wikipedia</li><li>It can sent an email for you only using voice command</li><li>It can narrate mailbox</li><li>It can set up alarms and reminders</li><li>etc.</li></ul>",
+    "criclive": "<h4>CricLive</h4><p>A website for live score and news. This site is mainly focused on Cricket. Users can get live cricket scores and news related to their region. This site also provides an API gateway for others to use these data.</p>",
+    "self-learn": "<h4>Self-Learn</h4><p>This is an online learning website. Here is a list of what users can get...</p><ul><li>Tutors can create courses and update course materials</li><li>Students can enroll courses</li><li>Students can perform quiz and review their performance</li><li>Tutors can monitor their courses in a dashboard</li><li>It has a feed where students can share their updates</li></ul>",
+    "mytube": "<h4>MyTube</h4><p>It's a video-sharing platform similar to YouTube. It allows users to upload, view, rate, share, comment on videos, and subscribe to other users.</p>",
+    "simplemanagement": "<h4>Simple Management</h4><p>It's a simple student management system. It was built using ReactJs, Redux, Saga, PHP, NodeJs and expressJs</p>",
     "proficient": {
         "li": [
             "Javascript",

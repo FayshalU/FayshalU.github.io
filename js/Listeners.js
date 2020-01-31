@@ -14,9 +14,7 @@ class Listeners {
         });
 
         $(term).keypress((event) => {
-            // console.log(event.target.textContent);
             if (event.keyCode == 13) {
-                // console.log(event.target.textContent);
                 const inputArr = event.target.textContent.trim().split(' ');
                 if (inputArr[0].trim() == 'clear' && !inputArr[1]) {
                     this.clearScreen();
