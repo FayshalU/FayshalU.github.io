@@ -5,7 +5,7 @@ class Listeners {
         this.eventListeners();
         this.term = document.getElementById("terminal");
         this.lastDir = '';
-        this.historyIndex = getHistory().length - 1;
+        this.historyIndex = getHistory().length;
     };
 
     eventListeners = () => {
@@ -14,7 +14,7 @@ class Listeners {
             $('.command-input').last().focus();
         });
 
-        $(term).keypress((event) => {
+        $(term).keydown((event) => {
             if (event.keyCode == 13) {
                 // Enter pressed
                 const inputfield = event.target;
@@ -26,23 +26,32 @@ class Listeners {
                     this.renderContent(inputArr);
                     this.resetCursor(inputfield);
                 }
+                else if (inputArr[0] == '') {
+                    this.resetCursor(inputfield);
+                }
                 else {
                     this.term.innerHTML += 'Invalid argument';
                     this.resetCursor(inputfield);
                 }
                 event.preventDefault();
-                setHistory(inputfield.textContent);
-                console.log(getHistory());
+                if (inputArr[0].trim() != '') {
+                    setHistory(inputfield.textContent);
+                    this.historyIndex = getHistory().length;
+                }
             }
             else if (event.keyCode == 38) {
                 // Up arrow pressed
-                if (getHistory().length > 0) {
-                    
+                if (getHistory().length > 0 && this.historyIndex > 0) {
+                    $('.command-input').last().html(getHistory()[this.historyIndex-1]);
+                    this.historyIndex--;
                 }
             }
             else if (event.keyCode == 40) {
                 // Down arrow pressed
-
+                if (getHistory().length > this.historyIndex) {
+                    this.historyIndex++;
+                    $('.command-input').last().html(getHistory()[this.historyIndex]);
+                }
             }
         });
 
