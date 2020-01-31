@@ -18,10 +18,17 @@ class Listeners {
             if (event.keyCode == 13) {
                 // console.log(event.target.textContent);
                 const inputArr = event.target.textContent.trim().split(' ');
-                if (inputArr[0] in this.commands) {
-                    this.renderContent(inputArr);
+                if (inputArr[0].trim() == 'clear' && !inputArr[1]) {
+                    this.clearScreen();
                 }
-                this.resetCursor(event.target);
+                else if (inputArr[0] in this.commands) {
+                    this.renderContent(inputArr);
+                    this.resetCursor(event.target);
+                }
+                else {
+                    this.term.innerHTML += 'Invalid argument';
+                    this.resetCursor(event.target);
+                }
                 event.preventDefault();
             }
         });
@@ -30,6 +37,21 @@ class Listeners {
         //     alert( e.keyCode );
         //     $(".command-input").innerHTML += e.keyCode;
         // });
+    }
+
+    // clear CLI
+    clearScreen = () => {
+        const currDir = getCurrentDir() == 'fayshal' ? '' : `/${getCurrentDir()}`;
+        $('#terminal').html(
+            `<p class="hidden">
+                <span class="prompt">
+                    <span class="path">Fayshal@root${currDir}</span>
+                    <span class="arrow">❯</span>
+                </span>
+                <span contenteditable="true" class="command-input"></span>
+            </p>`
+          )
+        $('.command-input').focus()
     }
 
     renderContent = (inputArr) => {

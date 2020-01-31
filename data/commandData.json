@@ -34,8 +34,8 @@
     "ohannah": "",
     "criclive": "",
     "self-learn": "",
-    "mytube": "",
-    "simplemanagement": "",
+    "mytube": "It's an ",
+    "simplemanagement": "It's a simple student management system. It was built using ReactJs, Redux, Saga, PHP, NodeJs and expressJs",
     "proficient": {
         "li": [
             "Javascript",
